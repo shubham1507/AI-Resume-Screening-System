@@ -1,0 +1,23 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.py[cod]
+
+# Environments
+.env
+venv/
+env/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# IDE files (example for PyCharm/VS Code)
+.idea/
+.vscode/
+
+# Operating System files
+.DS_Store
+
+
