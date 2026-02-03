@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Resume Analyzer</title>
+</head>
+<body>
+<h2>Resume Job Matching</h2>
+
+<textarea id="resume" rows="6" cols="60" placeholder="Paste Resume"></textarea><br><br>
+<textarea id="jd" rows="6" cols="60" placeholder="Paste Job Description"></textarea><br><br>
+
+<button onclick="match()">Match Resume</button>
+<p id="result"></p>
+
+<script>
+function match(){
+fetch("http://localhost:8181/match", {
+method: "POST",
+headers: {"Content-Type":"application/json"},
+body: JSON.stringify({
+resume_text: document.getElementById("resume").value,
+job_description: document.getElementById("jd").value
+})
+}).then(r=>r.json()).then(d=>{
+document.getElementById("result").innerText =
+"Match Percentage: " + d.match_percentage + "%";
+});
+}
+</script>
+</body>
+</html>
